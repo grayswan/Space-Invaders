@@ -1,6 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Audiowide|Quantico);
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
 
 body {
-  background-color: #00d000;
-  font-family: "Audiowide";
+  background-color: #26414b;
+}
+
+h1 {
+    font-family: "Audiowide";
+    text-align: center;
+    font-size: 3em;
+}
+
+#screen {
+  margin-left: 650px;
 }

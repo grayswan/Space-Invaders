@@ -7,8 +7,8 @@
     this.bodies = createInvaders(this).concat(new Player(this, gameSize));
 
     var self = this;
-    // loadSound("shoot.wav", function(shootSound) {
-    //   self.shootSound = shootSound;
+    loadSound("Laser4.wav", function(shootSound) {
+      self.shootSound = shootSound;
       var tick = function() {
         self.update();
         self.draw(screen, gameSize);
@@ -16,7 +16,7 @@
       };
 
       tick();
-    // });
+    });
   };
 
   Game.prototype = {
@@ -54,7 +54,7 @@
 
   var Player = function(game, gameSize) {
     this.game = game;
-    this.size = { x: 15, y: 15 };
+    this.size = { x: 25, y: 25 };
     this.center = { x: gameSize.x / 2, y: gameSize.y - this.size.x };
     this.keyboarder = new Keyboarder();
   };
@@ -71,15 +71,15 @@
         var bullet = new Bullet({ x: this.center.x, y: this.center.y - this.size.x - 2},
                   { x: 0, y: -6 });
           this.game.addBody(bullet);
-          // this.game.shootSound.load();
-          // this.game.shootSound.play();
+          this.game.shootSound.load();
+          this.game.shootSound.play();
       }
     }
   };
 
   var Invader = function(game, center) {
     this.game = game;
-    this.size = { x: 15, y: 15 };
+    this.size = { x: 22, y: 22 };
     this.center = center;
     this.patrolX = 0;
     this. speedX = 0.3;
@@ -157,16 +157,16 @@
             b1.center.y - b1.size.y / 2 > b2.center.y + b2.size.y / 2 );
   };
 
-  // var loadSound = function(url, callback) {
-  //   var loaded = function() {
-  //     callback(sound);
-  //     sound.removeEventListener('canplaythrough', loaded);
-  //   };
-  //
-  //   var sound = new Audio(url);
-  //   sound.addEventListener('canplaythrough', loaded);
-  //   sound.load();
-  // };
+  var loadSound = function(url, callback) {
+    var loaded = function() {
+      callback(sound);
+      sound.removeEventListener('canplaythrough', loaded);
+    };
+
+    var sound = new Audio(url);
+    sound.addEventListener('canplaythrough', loaded);
+    sound.load();
+  };
 
  window.onload = function () {
   new Game("screen");
