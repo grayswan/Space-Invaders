@@ -6,8 +6,9 @@
 
     this.bodies = createInvaders(this).concat(new Player(this, gameSize));
 
+
     var self = this;
-    loadSound("Laser4.wav", function(shootSound) {
+    loadSound("scifi013.wav", function(shootSound) {
       self.shootSound = shootSound;
       var tick = function() {
         self.update();
@@ -54,7 +55,7 @@
 
   var Player = function(game, gameSize) {
     this.game = game;
-    this.size = { x: 25, y: 25 };
+    this.size = { x: 20, y: 10 };
     this.center = { x: gameSize.x / 2, y: gameSize.y - this.size.x };
     this.keyboarder = new Keyboarder();
   };
@@ -79,7 +80,7 @@
 
   var Invader = function(game, center) {
     this.game = game;
-    this.size = { x: 22, y: 22 };
+    this.size = { x: 25, y: 15 };
     this.center = center;
     this.patrolX = 0;
     this. speedX = 0.3;
@@ -105,15 +106,15 @@
   var createInvaders = function (game) {
     var invaders = [];
     for (var i = 0; i < 24; i++) {
-      var x = 30 + (i % 8) * 30;
-      var y = 30 + (i % 3) * 30;
+      var x = 15 + (i % 8) * 30;
+      var y = 15 + (i % 3) * 20;
       invaders.push(new Invader(game, { x: x, y: y }));
     }
     return invaders;
   };
 
   var Bullet = function(center, velocity) {
-    this.size = { x: 3, y: 3 };
+    this.size = { x: 2, y: 2 };
     this.center = center;
     this.velocity = velocity;
   };

@@ -2,14 +2,24 @@
 
 body {
   background-color: #26414b;
+  font-family: "Audiowide";
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%
 }
 
 h1 {
-    font-family: "Audiowide";
     text-align: center;
     font-size: 3em;
 }
 
 #screen {
-  margin-left: 650px;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 50%;
+  height: 600px;
 }
+
+@media screen and ()
